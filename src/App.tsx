@@ -1,13 +1,20 @@
-import { Table } from './components/table'
-import {worldcup} from "./assets/teams.json"
+import { Table } from "./components/table";
+import { worldcup } from "./assets/teams.json";
+import axios from "axios";
+import { API_ENDPOINTS } from "./api";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Teams from "./pages/Teams";
 
 function App() {
-
   return (
-   <section className='max-w-7xl mx-auto mt-24'>
-    <div className='grid grid-cols-4 gap-3 '>{worldcup.map(({group, teams}, i)=><Table  group={group} teams={teams} key={`group-table-${i}`} />)}</div>
-   </section>
-  )
+    <main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="teams" element={<Teams />} />
+      </Routes>
+    </main>
+  );
 }
 
-export default App
+export default App;
