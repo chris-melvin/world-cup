@@ -1,15 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Table } from "./components/table";
+import { worldcup } from "./assets/teams.json";
+import axios from "axios";
+import { API_ENDPOINTS } from "./api";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Teams from "./pages/Teams";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="teams" element={<Teams />} />
+      </Routes>
+    </main>
+  );
 }
 
-export default App
+export default App;
